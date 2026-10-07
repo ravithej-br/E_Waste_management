@@ -1,0 +1,64 @@
+# ─────────────────────────────────────────────
+# .gitignore  –  E-Waste Classifier Project
+# ─────────────────────────────────────────────
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Secrets and environment variables
+.env
+*.env
+secrets.yaml
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data – raw and processed images are NOT committed to Git.
+# Keep only CSVs (split manifests) and classes.json.
+data/raw/
+data/processed/
+data/real_world_test/
+
+# Large model files – store on Google Drive / HuggingFace Hub
+models/checkpoints/*.pth
+models/checkpoints/*.pt
+models/onnx/*.onnx
+
+# Logs
+logs/
+*.log
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
+
+# pytest
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Streamlit cache
+.streamlit/

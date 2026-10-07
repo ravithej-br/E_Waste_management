@@ -1,0 +1,17 @@
+{
+  "_comment": "SINGLE SOURCE OF TRUTH for class labels. Never edit order after training starts.",
+  "_version": "1.0",
+  "_last_updated": "2026-10-07",
+  "classes": [
+    "battery",
+    "cfl_bulb",
+    "keyboard",
+    "mobile_phone",
+    "monitor_crt",
+    "pcb",
+    "other"
+  ],
+  "num_classes": 7,
+  "unknown_class": "other",
+  "unknown_index": 6
+}

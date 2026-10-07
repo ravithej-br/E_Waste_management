@@ -1,0 +1,15 @@
+# requirements_colab.txt
+# Use this file INSIDE Google Colab notebooks instead of requirements.txt.
+# Colab already provides torch/torchvision; only install what's missing.
+# Run: !pip install -q -r requirements_colab.txt
+
+timm==1.0.9
+onnx==1.16.1
+onnxruntime==1.18.1
+scikit-learn==1.5.1
+imagehash==4.3.1
+grad-cam==1.5.2
+tqdm==4.66.4
+pyyaml==6.0.1
+python-dotenv==1.0.1
+seaborn==0.13.2
