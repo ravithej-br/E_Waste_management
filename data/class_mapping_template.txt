@@ -1,0 +1,37 @@
+# Class Mapping Template
+# ─────────────────────────────────────────────────────────────────────────────
+# HOW TO USE:
+# 1. Download each dataset and list its actual folder/class names in column B.
+# 2. Decide which target class (column C) each source class maps to.
+# 3. If a source class does not fit any target, write "DROP" or "other".
+# 4. After filling this in, update classes.json BEFORE running any code.
+#
+# TARGET CLASSES (from classes.json):
+#   0 battery | 1 cfl_bulb | 2 keyboard | 3 mobile_phone
+#   4 monitor_crt | 5 pcb | 6 other
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# Dataset  | Source Class Name (actual) | Maps To (target class) | Notes
+# ─────────+────────────────────────────+────────────────────────+─────────────
+# DS1      | FILL_IN                    | FILL_IN                | FILL_IN
+# DS1      | FILL_IN                    | FILL_IN                | FILL_IN
+# DS1      | FILL_IN                    | FILL_IN                | FILL_IN
+# ─────────+────────────────────────────+────────────────────────+─────────────
+# DS2      | FILL_IN                    | FILL_IN                | FILL_IN
+# DS2      | FILL_IN                    | FILL_IN                | FILL_IN
+# ─────────+────────────────────────────+────────────────────────+─────────────
+# DS3      | FILL_IN                    | FILL_IN                | FILL_IN
+# DS3      | FILL_IN                    | FILL_IN                | FILL_IN
+# ─────────+────────────────────────────+────────────────────────+─────────────
+# DS4      | FILL_IN                    | FILL_IN                | FILL_IN
+# DS4      | FILL_IN                    | FILL_IN                | FILL_IN
+# ─────────+────────────────────────────+────────────────────────+─────────────
+# OWN PHOTOS| phone_photos              | mobile_phone           | team collected
+# OWN PHOTOS| battery_photos            | battery                | team collected
+#
+# EXAMPLE (fill yours like this after checking):
+# DS1      | Battery                    | battery                | exact match
+# DS1      | CRT_Monitor               | monitor_crt            | renamed
+# DS1      | Laptop                    | other                  | no laptop class; DROP or merge
+# DS4      | PCB_Board                 | pcb                    | exact match
+# DS4      | Resistor                  | DROP                   | too fine-grained

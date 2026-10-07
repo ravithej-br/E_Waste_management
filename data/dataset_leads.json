@@ -1,0 +1,45 @@
+{
+  "_comment": "Dataset leads to investigate. Verify existence, licence, and class names before downloading.",
+  "datasets": [
+    {
+      "id": "DS1",
+      "name": "E-Waste Image Dataset (Kaggle)",
+      "search_phrase": "e-waste image dataset electronic waste classification",
+      "platform": "Kaggle",
+      "expected_classes": "VERIFY – reported ~12 device classes (phones, laptops, batteries, monitors, etc.)",
+      "licence": "VERIFY on dataset page",
+      "existence": "VERIFY",
+      "notes": "User reported finding ~12 device classes. Check exact class folder names after download."
+    },
+    {
+      "id": "DS2",
+      "name": "Hugging Face waste-dataset-image",
+      "search_phrase": "4w4kt/waste-dataset-image",
+      "platform": "Hugging Face",
+      "expected_classes": "VERIFY – general waste categories; may include electronics subset",
+      "licence": "VERIFY on dataset page (check for CC licence)",
+      "existence": "VERIFY",
+      "notes": "May need filtering to keep only e-waste classes. Check if it has battery, CFL, PCB classes."
+    },
+    {
+      "id": "DS3",
+      "name": "E-Waste Vision Dataset (arXiv 2311.12823)",
+      "search_phrase": "E-Waste Vision Dataset arXiv 2311.12823",
+      "platform": "arXiv / linked repository",
+      "expected_classes": "VERIFY – academic dataset; check paper for class list and download link",
+      "licence": "VERIFY – check paper and associated repo",
+      "existence": "VERIFY",
+      "notes": "Search the paper on arxiv.org for a GitHub or Zenodo download link."
+    },
+    {
+      "id": "DS4",
+      "name": "Electronic Components Dataset (Kaggle)",
+      "search_phrase": "aryaminus/electronic-components",
+      "platform": "Kaggle",
+      "expected_classes": "VERIFY – likely PCB, resistors, capacitors, ICs – useful for PCB class",
+      "licence": "VERIFY on dataset page",
+      "existence": "VERIFY",
+      "notes": "Likely useful for the 'pcb' class specifically. May need relabelling."
+    }
+  ]
+}
