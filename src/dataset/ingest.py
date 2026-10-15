@@ -34,34 +34,88 @@ from src.utils.class_loader import get_class_names
 #         or "DROP"          (skip this class entirely)
 # ─────────────────────────────────────────────────────────────────────────────
 CLASS_MAPPING = {
-    # ── DS1 examples (REPLACE with real names after download) ─────────────
-    "Battery":          "battery",
-    "CRT_Monitor":      "monitor_crt",
-    "CFL":              "cfl_bulb",
-    "Keyboard":         "keyboard",
-    "Mobile":           "mobile_phone",
-    "PCB":              "pcb",
-    "Laptop":           "DROP",        # no laptop class; drop or add if you want
+    # ══════════════════════════════════════════════════════════════════════
+    # DS1 — akshat103/e-waste-image-dataset  (30 images per class)
+    # Downloaded to: ~/.cache/kagglehub/datasets/akshat103/e-waste-image-dataset/versions/1
+    # ══════════════════════════════════════════════════════════════════════
+    "Battery":          "battery",         # 30 imgs → battery
+    "Keyboard":         "keyboard",        # 30 imgs → keyboard
+    "Mobile":           "mobile_phone",    # 30 imgs → mobile_phone
+    "PCB":              "pcb",             # 30 imgs → pcb
+    "Television":       "monitor_crt",     # 30 imgs → monitor_crt (closest match; old CRT TVs)
+    "Mouse":            "other",           # 30 imgs → other (no mouse class)
+    "Microwave":        "other",           # 30 imgs → other (appliance, not e-waste class)
+    "Printer":          "other",           # 30 imgs → other (no printer class)
+    "Player":           "other",           # 30 imgs → other (media player)
+    "Washing Machine":  "other",           # 30 imgs → other (appliance)
 
-    # ── DS2 examples (REPLACE) ─────────────────────────────────────────────
-    "battery":          "battery",
-    "electronics":      "other",
+    # ══════════════════════════════════════════════════════════════════════
+    # DS4 — aryaminus/electronic-components  (10,990 images, 36 classes)
+    # Downloaded to: ~/.cache/kagglehub/datasets/aryaminus/electronic-components/versions/1
+    # Strategy: keep only components that visually represent a PCB/board.
+    # ══════════════════════════════════════════════════════════════════════
+    "Integrated-micro-circuit": "pcb",    # 470 imgs — IC chips on boards
+    "microchip":                "pcb",    # 461 imgs — chips
+    "microprocessor":           "pcb",    # 457 imgs — CPUs
+    "memory-chip":              "pcb",    # 297 imgs — RAM/ROM chips
+    # ── Drop rest (too granular / not visually e-waste) ───────────────────
+    "junction-transistor":      "DROP",
+    "LED":                      "DROP",
+    "potentiometer":            "DROP",
+    "relay":                    "DROP",
+    "limiter-clipper":          "DROP",
+    "semi-conductor":           "DROP",
+    "electric-relay":           "DROP",
+    "heat-sink":                "DROP",
+    "semiconductor-diode":      "DROP",
+    "step-down-transformer":    "DROP",
+    "Electrolytic-capacitor":   "DROP",
+    "filament":                 "DROP",
+    "armature":                 "DROP",
+    "pulse-generator":          "DROP",
+    "solenoid":                 "DROP",
+    "PNP-transistor":           "DROP",
+    "Bypass-capacitor":         "DROP",
+    "clip-lead":                "DROP",
+    "attenuator":               "DROP",
+    "jumper-cable":             "DROP",
+    "potential-divider":        "DROP",
+    "cartridge-fuse":           "DROP",
+    "rheostat":                 "DROP",
+    "stabilizer":               "DROP",
+    "step-up-transformer":      "DROP",
+    "transistor":               "DROP",
+    "induction-coil":           "DROP",
+    "omni-directional-antenna": "DROP",
+    "local-oscillator":         "DROP",
+    "shunt":                    "DROP",
+    "multiplexer":              "DROP",
+    "light-circuit":            "DROP",
 
-    # ── DS4 examples (REPLACE) ─────────────────────────────────────────────
-    "PCB_Board":        "pcb",
-    "Resistor":         "DROP",
-    "Capacitor":        "DROP",
-
-    # ── Own photos ─────────────────────────────────────────────────────────
-    "phone_photos":     "mobile_phone",
-    "battery_photos":   "battery",
+    # ══════════════════════════════════════════════════════════════════════
+    # Own phone photos (team-collected — place in data/raw/downloads/own/)
+    # ══════════════════════════════════════════════════════════════════════
+    "own_battery":       "battery",
+    "own_cfl":           "cfl_bulb",        # NEEDED — collect 80+ photos
+    "own_crt":           "monitor_crt",     # NEEDED — collect 50+ photos
+    "own_mobile":        "mobile_phone",
+    "own_keyboard":      "keyboard",
+    "own_pcb":           "pcb",
+    "own_other":         "other",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Source: where your unzipped downloads live
-# Structure expected: DOWNLOAD_ROOT/<any_subfolder>/<class_folder>/<image.jpg>
+# Actual download locations (kagglehub caches here automatically)
 # ─────────────────────────────────────────────────────────────────────────────
-DOWNLOAD_ROOT = RAW_DIR / "downloads"
+import os
+
+_KAGGLE_CACHE = Path(os.path.expanduser("~")) / ".cache" / "kagglehub" / "datasets"
+
+DATASET_PATHS = {
+    "DS1": _KAGGLE_CACHE / "akshat103" / "e-waste-image-dataset" / "versions" / "1",
+    "DS4": _KAGGLE_CACHE / "aryaminus" / "electronic-components" / "versions" / "1",
+    "OWN": RAW_DIR / "downloads" / "own",   # team-collected phone photos
+}
 
 
 def ingest(dry_run: bool = False) -> None:
@@ -70,39 +124,44 @@ def ingest(dry_run: bool = False) -> None:
     dropped = 0
     unknown = []
 
-    for src_class_dir in DOWNLOAD_ROOT.rglob("*"):
-        if not src_class_dir.is_dir():
+    for ds_id, ds_root in DATASET_PATHS.items():
+        if not ds_root.exists():
+            print(f"  [SKIP] {ds_id} path not found: {ds_root}")
             continue
+        print(f"\n  Scanning {ds_id}: {ds_root}")
 
-        folder_name = src_class_dir.name
-        if folder_name not in CLASS_MAPPING:
-            continue
-
-        target_class = CLASS_MAPPING[folder_name]
-
-        if target_class == "DROP":
-            img_count = sum(1 for f in src_class_dir.iterdir()
-                            if f.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"})
-            print(f"  [DROP] {folder_name}  ({img_count} images skipped)")
-            dropped += img_count
-            continue
-
-        if target_class not in valid_classes:
-            unknown.append((folder_name, target_class))
-            continue
-
-        dest_dir = RAW_DIR / target_class
-        dest_dir.mkdir(parents=True, exist_ok=True)
-
-        for img_path in src_class_dir.iterdir():
-            if img_path.suffix.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
+        for src_class_dir in ds_root.rglob("*"):
+            if not src_class_dir.is_dir():
                 continue
-            # Give each image a unique name: <source_class>_<original_name>
-            dest_name = f"{folder_name}_{img_path.name}"
-            dest_path = dest_dir / dest_name
-            if not dry_run:
-                shutil.copy2(img_path, dest_path)
-            copied += 1
+            folder_name = src_class_dir.name
+            if folder_name not in CLASS_MAPPING:
+                continue
+            target_class = CLASS_MAPPING[folder_name]
+
+            if target_class == "DROP":
+                img_count = sum(1 for f in src_class_dir.iterdir()
+                                if f.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"})
+                if img_count:
+                    print(f"    [DROP] {folder_name}  ({img_count} images skipped)")
+                dropped += img_count
+                continue
+
+            if target_class not in valid_classes:
+                unknown.append((folder_name, target_class))
+                continue
+
+            dest_dir = RAW_DIR / target_class
+            dest_dir.mkdir(parents=True, exist_ok=True)
+
+            for img_path in src_class_dir.iterdir():
+                if img_path.suffix.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
+                    continue
+                # Unique name: <DS_ID>_<source_class>_<original_name>
+                dest_name = f"{ds_id}_{folder_name}_{img_path.name}"
+                dest_path = dest_dir / dest_name
+                if not dry_run:
+                    shutil.copy2(img_path, dest_path)
+                copied += 1
 
     print(f"\n  Copied : {copied}")
     print(f"  Dropped: {dropped}")
@@ -121,7 +180,11 @@ if __name__ == "__main__":
                         help="Print what would happen without copying files.")
     args = parser.parse_args()
 
-    print(f"\nIngesting from: {DOWNLOAD_ROOT}")
-    print(f"Destination   : {RAW_DIR}\n")
+    print(f"\nDataset sources:")
+    for ds_id, path in DATASET_PATHS.items():
+        status = "FOUND" if path.exists() else "NOT FOUND"
+        print(f"  {ds_id}: {path}  [{status}]")
+    print(f"\nDestination: {RAW_DIR}\n")
     ingest(dry_run=args.dry_run)
     print("\nDone. Next: run src/dataset/clean.py")
+
