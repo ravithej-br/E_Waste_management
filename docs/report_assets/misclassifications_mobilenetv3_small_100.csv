@@ -1,0 +1,82 @@
+filepath,true_label,pred_label,confidence
+DS1_Battery_battery_190.jpg,battery,other,0.5296
+DS1_Battery_battery_270.jpg,battery,pcb,0.7682
+HF_cfl_bulb_01225.jpg,cfl_bulb,pcb,0.3802
+DS1_Mobile_Mobile_140.jpg,mobile_phone,pcb,0.4063
+DS1_Mobile_Mobile_182.jpg,mobile_phone,pcb,0.3106
+DS1_Mobile_Mobile_50.jpg,mobile_phone,pcb,0.2646
+DS1_Mobile_Mobile_51.jpg,mobile_phone,battery,0.3213
+DS1_Television_Television_123.jpg,monitor_crt,pcb,0.692
+DS1_Television_Television_262.jpg,monitor_crt,battery,0.8354
+DS1_Microwave_Microwave_105.jpg,pcb,keyboard,0.3245
+DS1_Microwave_Microwave_17.jpg,pcb,keyboard,0.6692
+DS1_Microwave_Microwave_203.jpg,pcb,battery,0.2883
+DS1_Microwave_Microwave_220.jpg,pcb,keyboard,0.2492
+DS1_Microwave_Microwave_271.jpg,pcb,monitor_crt,0.6927
+DS1_Microwave_Microwave_50.jpg,pcb,monitor_crt,0.9542
+DS1_Microwave_Microwave_53.jpg,pcb,monitor_crt,0.455
+DS1_Microwave_Microwave_59.jpg,pcb,monitor_crt,0.5606
+DS1_Mouse_Mouse_149.jpg,pcb,battery,0.4338
+DS1_Mouse_Mouse_152.jpg,pcb,battery,0.3937
+DS1_Mouse_Mouse_188.jpg,pcb,battery,0.454
+DS1_Player_Player_108.jpg,pcb,mobile_phone,0.316
+DS1_Player_Player_11.jpg,pcb,other,0.5372
+DS1_Player_Player_110.jpg,pcb,mobile_phone,0.2906
+DS1_Player_Player_134.jpg,pcb,monitor_crt,0.407
+DS1_Player_Player_149.jpg,pcb,cfl_bulb,0.6228
+DS1_Player_Player_209.jpg,pcb,battery,0.4361
+DS1_Player_Player_231.jpg,pcb,battery,0.6615
+DS1_Player_Player_234.jpg,pcb,battery,0.4536
+DS1_Player_Player_248.jpg,pcb,battery,0.56
+DS1_Player_Player_259.jpg,pcb,battery,0.658
+DS1_Player_Player_272.jpg,pcb,battery,0.3718
+DS1_Printer_Printer_137.jpg,pcb,battery,0.4516
+DS1_Printer_Printer_138.jpg,pcb,battery,0.3601
+DS1_Printer_Printer_169.jpg,pcb,mobile_phone,0.43
+DS1_Printer_Printer_28.jpg,pcb,battery,0.4098
+DS1_Printer_Printer_77.jpg,pcb,battery,0.53
+DS1_Washing Machine_Washing_Machine_122.jpg,pcb,battery,0.7284
+DS1_Washing Machine_Washing_Machine_124.jpg,pcb,battery,0.7041
+DS1_Washing Machine_Washing_Machine_14.jpg,pcb,battery,0.479
+DS1_Washing Machine_Washing_Machine_226.jpg,pcb,battery,0.6096
+DS1_Washing Machine_Washing_Machine_243.jpg,pcb,monitor_crt,0.5451
+DS1_Washing Machine_Washing_Machine_28.jpg,pcb,battery,0.3994
+DS1_Washing Machine_Washing_Machine_287.jpg,pcb,monitor_crt,0.4968
+DS1_Washing Machine_Washing_Machine_50.jpg,pcb,battery,0.7532
+DS1_PCB_pcb_22.jpg,other,cfl_bulb,0.6428
+DS4_Integrated-micro-circuit_Integrated-micro-circuit1202.jpg,other,battery,0.4118
+DS4_Integrated-micro-circuit_Integrated-micro-circuit1339.jpg,other,cfl_bulb,0.2487
+DS4_Integrated-micro-circuit_Integrated-micro-circuit297.jpg,other,cfl_bulb,0.7402
+DS4_Integrated-micro-circuit_Integrated-micro-circuit311.jpg,other,battery,0.489
+DS4_Integrated-micro-circuit_Integrated-micro-circuit322.jpg,other,battery,0.4931
+DS4_Integrated-micro-circuit_Integrated-micro-circuit334.jpg,other,battery,0.2451
+DS4_Integrated-micro-circuit_Integrated-micro-circuit372.jpg,other,cfl_bulb,0.4207
+DS4_Integrated-micro-circuit_Integrated-micro-circuit695.jpg,other,cfl_bulb,0.5568
+DS4_Integrated-micro-circuit_Integrated-micro-circuit736.jpg,other,pcb,0.3705
+DS4_Integrated-micro-circuit_Integrated-micro-circuit747.jpg,other,battery,0.3315
+DS4_memory-chip_memory-chip087.jpg,other,cfl_bulb,0.3893
+DS4_memory-chip_memory-chip091.jpg,other,battery,0.7043
+DS4_memory-chip_memory-chip138.jpg,other,keyboard,0.5285
+DS4_memory-chip_memory-chip162.jpg,other,battery,0.2583
+DS4_memory-chip_memory-chip211.jpg,other,keyboard,0.3726
+DS4_memory-chip_memory-chip215.jpg,other,battery,0.3371
+DS4_memory-chip_memory-chip228.jpg,other,battery,0.6579
+DS4_memory-chip_memory-chip272.jpg,other,keyboard,0.2948
+DS4_microchip_microchip1165.jpg,other,monitor_crt,0.3548
+DS4_microchip_microchip1178.jpg,other,keyboard,0.4054
+DS4_microchip_microchip165.jpg,other,battery,0.3333
+DS4_microchip_microchip231.jpg,other,cfl_bulb,0.7883
+DS4_microchip_microchip425.jpg,other,battery,0.6671
+DS4_microchip_microchip575.jpg,other,cfl_bulb,0.3509
+DS4_microchip_microchip643.jpg,other,battery,0.481
+DS4_microchip_microchip749.jpg,other,battery,0.4607
+DS4_microchip_microchip937.jpg,other,keyboard,0.7145
+DS4_microchip_microchip955.jpg,other,battery,0.3372
+DS4_microchip_microchip984.jpg,other,cfl_bulb,0.3598
+DS4_microprocessor_microprocessor013.jpg,other,battery,0.8468
+DS4_microprocessor_microprocessor023.jpg,other,battery,0.5905
+DS4_microprocessor_microprocessor062.jpg,other,battery,0.7836
+DS4_microprocessor_microprocessor1066.jpg,other,pcb,0.4701
+DS4_microprocessor_microprocessor1069.jpg,other,cfl_bulb,0.4992
+DS4_microprocessor_microprocessor684.jpg,other,monitor_crt,0.3712
+DS4_microprocessor_microprocessor778.jpg,other,mobile_phone,0.7746

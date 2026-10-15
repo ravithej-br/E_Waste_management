@@ -70,13 +70,13 @@ EFFICIENTNET_MODEL_NAME = "efficientnet_b0"  # timm model name
 MOBILENET_MODEL_NAME    = "mobilenetv3_small_100"  # timm model name
 
 # ─────────────────────────────────────────────
-# CONFIDENCE / THRESHOLD SETTINGS
+# CONFIDENCE / THRESHOLD SETTINGS (Calibrated in Phase 3)
 # ─────────────────────────────────────────────
-# ⚠️  PLACEHOLDER – replace with the value chosen from your validation
-#     coverage-vs-accuracy curve in Phase 3.
-DEFAULT_CONFIDENCE_THRESHOLD = 0.70
-# Temperature scaling parameter – set to 1.0 until calibrated in Phase 3
-TEMPERATURE = 1.0
+# Empirically chosen from validation coverage-vs-accuracy curve:
+DEFAULT_CONFIDENCE_THRESHOLD = 0.65
+# Calibrated Temperature scaling parameter (minimizes NLL on validation logits):
+TEMPERATURE = 0.4923
+
 
 # ─────────────────────────────────────────────
 # ONNX / QUANTIZATION SETTINGS
