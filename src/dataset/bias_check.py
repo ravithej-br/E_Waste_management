@@ -118,8 +118,7 @@ def check_bias() -> None:
     chart_path = REPORT_DIR / "class_distribution.png"
     plt.savefig(chart_path, dpi=150)
     plt.close()
-    print(f"\n  Chart saved: {chart_path}")
-    print("  Add this chart to your report (Section: Dataset → Class Distribution).\n")
+    print("  Add this chart to your report (Section: Dataset -> Class Distribution).\n")
 
 
 if __name__ == "__main__":

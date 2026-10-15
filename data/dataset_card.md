@@ -29,32 +29,27 @@ SDG 11 and SDG 12.
 
 | ID  | Dataset Name                   | Platform      | Licence    | Used Classes         | Status  |
 |-----|--------------------------------|---------------|------------|----------------------|---------|
-| DS1 | FILL_IN (Kaggle e-waste)       | Kaggle        | VERIFY     | FILL_IN              | VERIFY  |
-| DS2 | 4w4kt/waste-dataset-image      | Hugging Face  | VERIFY     | FILL_IN              | VERIFY  |
-| DS3 | E-Waste Vision (arXiv 2311.12823)| arXiv/Zenodo| VERIFY     | FILL_IN              | VERIFY  |
-| DS4 | aryaminus/electronic-components| Kaggle        | VERIFY     | pcb subset           | VERIFY  |
-| OWN | Team-collected phone photos    | Original      | CC BY 4.0  | battery, mobile_phone| Confirmed |
-
-> **Instructions:** After downloading each dataset, fill in Licence and Used Classes
-> above. If a dataset is not available, mark Status as "Not found" and note the
-> fallback used.
+| DS1 | akshat103/e-waste-image-dataset| Kaggle        | Open (VERIFY)| battery, keyboard, mobile, monitor_crt, other | Confirmed |
+| DS2 | 4w4kt/waste-dataset-image      | Hugging Face  | CC BY-NC-SA 4.0 (VERIFY)| cfl_bulb ('light bulbs') | Confirmed |
+| DS4 | aryaminus/electronic-components| Kaggle        | Open (VERIFY)| pcb (IC chips, microchips, microprocessors, memory-chips) | Confirmed |
 
 ---
 
-## Image Counts (fill in after running clean.py and split.py)
+## Image Counts (Real Data Post-Cleaning)
 
-| Class        | Train | Val | Test | Total |
-|--------------|-------|-----|------|-------|
-| battery      | FILL  | FILL| FILL | FILL  |
-| cfl_bulb     | FILL  | FILL| FILL | FILL  |
-| keyboard     | FILL  | FILL| FILL | FILL  |
-| mobile_phone | FILL  | FILL| FILL | FILL  |
-| monitor_crt  | FILL  | FILL| FILL | FILL  |
-| pcb          | FILL  | FILL| FILL | FILL  |
-| other        | FILL  | FILL| FILL | FILL  |
-| **TOTAL**    | FILL  | FILL| FILL | FILL  |
+| Class        | Train | Val | Test | Total Clean |
+|--------------|-------|-----|------|-------------|
+| battery      | 206   | 45  | 44   | 295         |
+| cfl_bulb     | 141   | 30  | 30   | 201         |
+| keyboard     | 207   | 44  | 45   | 296         |
+| mobile_phone | 204   | 43  | 44   | 291         |
+| monitor_crt  | 200   | 43  | 42   | 285         |
+| pcb          | 1282  | 275 | 275  | 1832        |
+| other        | 1003  | 215 | 215  | 1433        |
+| **TOTAL**    | **3243** | **695** | **695** | **4633** |
 
 Split ratio: 70% / 15% / 15%  |  Seed: 42
+
 
 ---
 
