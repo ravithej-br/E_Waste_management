@@ -32,6 +32,7 @@ secrets.yaml
 data/raw/
 data/processed/
 data/real_world_test/
+*.zip
 
 # Large model files – store on Google Drive / HuggingFace Hub
 models/checkpoints/*.pth
