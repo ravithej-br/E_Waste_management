@@ -1,0 +1,177 @@
+{
+  "_version": "1.0",
+  "_last_updated": "2026-10-15",
+  "_disclaimer": "This guidance is strictly informational and educational. It does not constitute formal legal or certified hazardous materials safety advice. Always consult local regulations, official CPCB/KSPCB circulars, or certified recycling professionals for disposal.",
+  "classes": {
+    "battery": {
+      "display_name": "Battery (Lithium-ion / Alkaline / Lead-Acid)",
+      "hazard_level": "HIGH",
+      "toxic_compounds": [
+        "Lithium (Li)",
+        "Cobalt (Co)",
+        "Lead (Pb)",
+        "Cadmium (Cd)",
+        "Nickel (Ni)",
+        "Corrosive acidic/alkaline electrolytes"
+      ],
+      "safe_handling": [
+        "Do not puncture, crush, or open battery casings.",
+        "Tape over exposed positive and negative terminals with non-conductive electrical tape to prevent accidental short circuits.",
+        "Keep away from open flames, heat sources, and direct sunlight.",
+        "Never submerge in water or dispose of in municipal trash or sewer systems."
+      ],
+      "storage_tips": [
+        "Store in a non-conductive, fire-resistant plastic or cardboard container.",
+        "Keep in a cool, dry, well-ventilated area away from combustible materials.",
+        "Keep strictly out of reach of children and domestic pets."
+      ],
+      "disposal_method": "Hand over to registered battery collection centers, authorized battery recyclers, or manufacturer take-back deposit return kiosks pursuant to India's Battery Waste Management Rules, 2022.",
+      "extra_care_notes": "LITHIUM THERMAL RUNAWAY WARNING: Damaged, punctured, or swollen lithium-ion batteries can experience spontaneous internal short circuits leading to thermal runaway, toxic gas venting, and violent fires. If a battery is swollen or hot, isolate it immediately in a dry sand bucket or fireproof container and do not charge or transport it normally.",
+      "source_reference": "Battery Waste Management Rules, 2022 (MoEFCC Notification G.S.R. 664(E), dated 24th August 2022) and CPCB Guidelines on Battery Waste Management.",
+      "last_checked": "2026-10-15",
+      "verify": true
+    },
+    "cfl_bulb": {
+      "display_name": "Compact Fluorescent Lamp (CFL) / Fluorescent Tube",
+      "hazard_level": "HIGH",
+      "toxic_compounds": [
+        "Elemental Mercury (Hg) vapor",
+        "Phosphor powder coating",
+        "Lead (in end-cap solder)"
+      ],
+      "safe_handling": [
+        "Handle gently by the plastic base, never by the fragile glass tubes.",
+        "Never place unprotected bulbs in general garbage bags where crushing releases mercury vapor.",
+        "Do NOT crush or break the bulb under any circumstance."
+      ],
+      "storage_tips": [
+        "Place burned-out bulbs back in their original cardboard packaging or wrap in bubble wrap.",
+        "Store in a sturdy box labeled 'Fragile: Contains Mercury - CFL' to avoid crushing.",
+        "Keep in a dry location safe from accidental knocks."
+      ],
+      "disposal_method": "Drop off at designated e-waste drop boxes, municipal hazardous waste collection points, or KSPCB-authorized e-waste dismantlers equipped with mercury recovery retorts under E-Waste (Management) Rules, 2022.",
+      "extra_care_notes": "MERCURY VAPOR SPILL PROTOCOL: If a CFL bulb breaks indoors: 1. Evacuate all people and pets from the room immediately. 2. Open external windows and ventilate the room for at least 15 minutes. 3. Shut down central air conditioning/fans. 4. Do NOT use a vacuum cleaner (vacuuming vaporizes mercury and disperses it into the air). 5. Carefully scoop up glass shards using stiff cardboard, collect residue with sticky tape, wipe area with damp paper towels, and seal in a glass jar.",
+      "source_reference": "E-Waste (Management) Rules, 2022 (MoEFCC Notification G.S.R. 801(E), Schedule I - Consumer Electronics and Lighting Equipment) and CPCB Technical Guidelines on Environmentally Sound Mercury Waste Handling.",
+      "last_checked": "2026-10-15",
+      "verify": true
+    },
+    "keyboard": {
+      "display_name": "Computer Keyboard / Input Peripheral",
+      "hazard_level": "LOW",
+      "toxic_compounds": [
+        "Brominated Flame Retardants (BFRs in casing plastics)",
+        "Lead (Pb trace in internal solder joints)",
+        "Antimony Trioxide"
+      ],
+      "safe_handling": [
+        "Do not incinerate or burn plastic keycaps or chassis (releases toxic brominated dioxins).",
+        "Unplug from USB/power before cleaning or disposal.",
+        "If membrane has degraded, wear gloves when opening the enclosure."
+      ],
+      "storage_tips": [
+        "Stack flat in a dry storage carton.",
+        "Keep away from direct heat to prevent plastic embrittlement."
+      ],
+      "disposal_method": "Deposit at IT asset recycling drives, OEM take-back centers (e.g., brand collection points), or KSPCB-authorized e-waste recyclers under E-Waste Rules 2022 Extended Producer Responsibility (EPR) provisions.",
+      "extra_care_notes": "Keyboards contain high quantities of recyclable ABS/polycarbonate plastics and copper cabling. Ensure cables are intact for optimal recycling yields.",
+      "source_reference": "E-Waste (Management) Rules, 2022 (MoEFCC, Schedule I - Information Technology and Telecommunication Equipment: ITEW1 to ITEW27).",
+      "last_checked": "2026-10-15",
+      "verify": false
+    },
+    "mobile_phone": {
+      "display_name": "Mobile Phone / Smartphone",
+      "hazard_level": "MEDIUM",
+      "toxic_compounds": [
+        "Lithium (in internal battery pack)",
+        "Lead and Tin (in micro-solder connections)",
+        "Beryllium and Arsenic (in chipsets)",
+        "Brominated Flame Retardants (in housing)",
+        "Valuable recoverable metals: Gold (Au), Silver (Ag), Palladium (Pd), Copper (Cu)"
+      ],
+      "safe_handling": [
+        "Perform a factory reset and remove SIM cards, memory cards, and personal data before disposal.",
+        "Do not puncture the rear casing or attempt to pry out non-removable glued lithium-ion batteries.",
+        "If the screen is cracked, cover with clear packaging tape to prevent glass splinter injuries."
+      ],
+      "storage_tips": [
+        "Store in a dry container at room temperature.",
+        "Discharge battery to approximately 30-50% if storing long-term before recycling."
+      ],
+      "disposal_method": "Return to manufacturer/retailer take-back kiosks, trade-in exchange programs, or KSPCB-authorized e-waste recyclers for precious metal recovery under mandatory EPR quotas (E-Waste Rules 2022).",
+      "extra_care_notes": "Smartphones contain valuable precious metals alongside hazardous compounds. Ensure safe channel disposal through authorized recyclers to prevent unscientific informal acid-leaching, which causes severe soil and groundwater contamination.",
+      "source_reference": "E-Waste (Management) Rules, 2022 (Schedule I - Cellular telephones: feature phones and smartphones) and CPCB EPR Portal.",
+      "last_checked": "2026-10-15",
+      "verify": true
+    },
+    "monitor_crt": {
+      "display_name": "CRT Monitor / Television (Cathode Ray Tube)",
+      "hazard_level": "HIGH",
+      "toxic_compounds": [
+        "Lead Oxide (PbO - up to 1.5 to 3 kg of lead embedded in the funnel and neck glass)",
+        "Barium (in electron gun region)",
+        "Cadmium and Phosphor powder coating (inner surface of faceplate)",
+        "Mercury (in some auxiliary circuitry)"
+      ],
+      "safe_handling": [
+        "Never attempt to break open, dismantle, or smash the glass tube.",
+        "Carry using the heavy front bezel, keeping the vulnerable neck/electron gun protected.",
+        "Wear heavy-duty work gloves and eye protection when lifting or moving old CRT chassis."
+      ],
+      "storage_tips": [
+        "Store upright on a solid floor surface in a dry indoor area.",
+        "Do not stack other heavy objects on top of the CRT screen face.",
+        "Protect the fragile glass neck at the rear from accidental impact."
+      ],
+      "disposal_method": "Must be handed over directly to KSPCB/CPCB authorized recyclers with specialized mechanical CRT splitting and lead smelting facilities. Illegal under Indian law to dispose of in municipal landfills or open scrap markets.",
+      "extra_care_notes": "IMPLOSION & TOXIC DUST HAZARD: The cathode ray tube operates under high internal vacuum. If the glass neck is cracked or struck, it can implode violently, throwing sharp lead-laden glass shards and scattering toxic fluorescent phosphor powder into the air.",
+      "source_reference": "E-Waste (Management) Rules, 2022 (MoEFCC Notification G.S.R. 801(E), Schedule I) and CPCB Guidelines for Environmentally Sound Dismantling of Cathode Ray Tubes.",
+      "last_checked": "2026-10-15",
+      "verify": true
+    },
+    "pcb": {
+      "display_name": "Printed Circuit Board (PCB / Motherboard / Greenboard)",
+      "hazard_level": "MEDIUM",
+      "toxic_compounds": [
+        "Lead (Pb) in conventional solder",
+        "Brominated Flame Retardants (BFRs in epoxy resin substrate)",
+        "Antimony and Beryllium (in connector alloys and heat sinks)",
+        "Recoverable high-grade metals: Copper (Cu), Gold (Au), Silver (Ag)"
+      ],
+      "safe_handling": [
+        "Handle with protective gloves; edges and component pins can cause cuts and skin abrasions.",
+        "Do not snap, burn, or heat circuit boards (burning FR-4 resin generates toxic dioxins and furans).",
+        "Do not soak in domestic chemicals or acid baths for DIY gold recovery."
+      ],
+      "storage_tips": [
+        "Store flat in antistatic bags or cardboard cartons in a moisture-free area.",
+        "Do not expose to moisture to prevent chemical oxidation of solder joints."
+      ],
+      "disposal_method": "Supply directly to authorized formal e-waste recyclers equipped with automated shredding, electrostatic separation, and hydrometallurgical or pyrometallurgical refining facilities licensed by KSPCB.",
+      "extra_care_notes": "Informal processing (open burning or cyanide/aqua regia acid leaching of PCBs in backyards) is strictly prohibited under Rule 14 of E-Waste Rules 2022 and punishable by legal penalties under the Environment (Protection) Act, 1986.",
+      "source_reference": "E-Waste (Management) Rules, 2022, Chapter IV & V: Responsibilities of Recyclers and Extended Producer Responsibility framework.",
+      "last_checked": "2026-10-15",
+      "verify": false
+    },
+    "other": {
+      "display_name": "Non-E-Waste / Mixed Scrap / Unidentified Item",
+      "hazard_level": "UNKNOWN",
+      "toxic_compounds": [
+        "Varies depending on material composition (plastics, glass, domestic municipal waste, or non-electronic appliances)"
+      ],
+      "safe_handling": [
+        "Check manufacturer labels to determine whether electrical components, batteries, or electronic cords are attached.",
+        "If electrical cords or battery compartments are present, separate them before disposal.",
+        "Wash hands after handling unidentified municipal scrap."
+      ],
+      "storage_tips": [
+        "Segregate dry recyclables (paper, clean plastic, cardboard) from wet organic waste.",
+        "Keep in a designated dry waste collection bin."
+      ],
+      "disposal_method": "If item is domestic dry waste, hand over to Bruhat Bengaluru Mahanagara Palike (BBMP) dry waste collection centers. If item contains internal electronics or motors, route to an authorized e-waste aggregator.",
+      "extra_care_notes": "If the model classified an item as 'other' but you believe it is electronic waste, check for the 'crossed-out wheeled bin' symbol on the device chassis.",
+      "source_reference": "Solid Waste Management Rules, 2016 and E-Waste (Management) Rules, 2022, Ministry of Environment, Forest and Climate Change (MoEFCC).",
+      "last_checked": "2026-10-15",
+      "verify": false
+    }
+  }
+}
