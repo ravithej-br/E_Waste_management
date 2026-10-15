@@ -1,0 +1,88 @@
+{
+  "_version": "1.0",
+  "_last_updated": "2026-10-15",
+  "_disclaimer": "Recycler details are compiled from KSPCB and CPCB public records for academic and civic reference. Contact numbers and operating hours must be verified with respective centers prior to physical visits.",
+  "default_city": "Bengaluru",
+  "centers": [
+    {
+      "id": "blr_01",
+      "name": "E-Parisaraa Pvt. Ltd. (Bengaluru Operations)",
+      "cluster": "Nelamangala / Dobbspet Industrial Area",
+      "address": "Plot No. 30-P3, Dobbspet Industrial Area, Bengaluru Rural, Karnataka 562111 (verify)",
+      "phone": "+91 80 2836 0902 (verify)",
+      "email": "info@eparisaraa.com (verify)",
+      "coordinates": {
+        "lat": 13.2505,
+        "lon": 77.2415
+      },
+      "authorized_by": "KSPCB & CPCB",
+      "categories_accepted": ["pcb", "battery", "mobile_phone", "keyboard", "monitor_crt", "cfl_bulb"],
+      "verification_status": "verify",
+      "notes": "India's pioneer scientific e-waste recycling facility licensed for precious metal recovery and CRT splitting."
+    },
+    {
+      "id": "blr_02",
+      "name": "E-R3 Solutions Pvt. Ltd.",
+      "cluster": "Peenya Industrial Area 2nd Stage",
+      "address": "No. C-374, 9th Cross, Peenya 2nd Stage, Bengaluru, Karnataka 560058 (verify)",
+      "phone": "+91 80 4117 1221 (verify)",
+      "email": "contact@er3solutions.com (verify)",
+      "coordinates": {
+        "lat": 13.0285,
+        "lon": 77.5192
+      },
+      "authorized_by": "KSPCB",
+      "categories_accepted": ["pcb", "keyboard", "mobile_phone", "battery", "monitor_crt"],
+      "verification_status": "verify",
+      "notes": "Authorized e-waste dismantler and IT asset disposal specialist in Peenya cluster."
+    },
+    {
+      "id": "blr_03",
+      "name": "Sogo Synergy Pvt. Ltd.",
+      "cluster": "Bommasandra Industrial Area",
+      "address": "Plot No. 129/C, Bommasandra Industrial Area, Hosur Road, Bengaluru, Karnataka 560099 (verify)",
+      "phone": "+91 80 2783 2345 (verify)",
+      "email": "support@sogosynergy.com (verify)",
+      "coordinates": {
+        "lat": 12.8172,
+        "lon": 77.6922
+      },
+      "authorized_by": "KSPCB & CPCB",
+      "categories_accepted": ["mobile_phone", "keyboard", "pcb", "battery", "monitor_crt"],
+      "verification_status": "verify",
+      "notes": "Full-capacity recycler handling southern Bengaluru and Electronic City industrial corridors."
+    },
+    {
+      "id": "blr_04",
+      "name": "Saahas Zero Waste (E-Waste Aggregation)",
+      "cluster": "Koramangala / Jayanagar Hub",
+      "address": "No. 21, MCHS Colony, 5th C Cross, 16th Main, BTM Layout 2nd Stage, Bengaluru 560076 (verify)",
+      "phone": "+91 80 4168 9389 (verify)",
+      "email": "info@saahaszerowaste.com (verify)",
+      "coordinates": {
+        "lat": 12.9165,
+        "lon": 77.6101
+      },
+      "authorized_by": "KSPCB Authorized Aggregator",
+      "categories_accepted": ["battery", "mobile_phone", "cfl_bulb", "keyboard", "pcb"],
+      "verification_status": "verify",
+      "notes": "Convenient urban drop-off partner operating in central Bengaluru for household and consumer electronics."
+    },
+    {
+      "id": "blr_05",
+      "name": "Cerebra Green (Cerebra Integrated Technologies)",
+      "cluster": "Whitefield / Mahadevapura IT Corridor",
+      "address": "S-5, 2nd Floor, Cerebra Towers, Off Outer Ring Road, Mahadevapura, Bengaluru 560048 (verify)",
+      "phone": "+91 80 2658 9700 (verify)",
+      "email": "info@cerebracomputers.com (verify)",
+      "coordinates": {
+        "lat": 12.9862,
+        "lon": 77.7011
+      },
+      "authorized_by": "KSPCB & CPCB",
+      "categories_accepted": ["keyboard", "mobile_phone", "pcb", "monitor_crt"],
+      "verification_status": "verify",
+      "notes": "Specialized in corporate IT asset refurbishment, take-back drives, and EPR compliance."
+    }
+  ]
+}
