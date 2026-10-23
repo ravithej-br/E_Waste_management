@@ -95,12 +95,23 @@ class EwasteInferenceEngine:
         orig_w, orig_h = pil_img.size
         orig_format = pil_img.format or "UNKNOWN"
 
+        # Apply EXIF rotation if present (crucial for phone camera orientation)
+        from PIL import ImageOps
+        pil_img = ImageOps.exif_transpose(pil_img)
+
         # Convert to RGB
         if pil_img.mode != "RGB":
             pil_img = pil_img.convert("RGB")
 
-        # Bilinear resize to 224x224
-        img_resized = pil_img.resize((IMAGE_SIZE, IMAGE_SIZE), Image.Resampling.BILINEAR)
+        # Smart Aspect Ratio Handling:
+        # If image is widescreen/tall (e.g. smartphone 16:9 or 4:3 with ratio > 1.3),
+        # center-fit preserving aspect ratio to prevent severe geometric stretching.
+        w, h = pil_img.size
+        ratio = max(w, h) / max(min(w, h), 1)
+        if ratio > 1.3:
+            img_resized = ImageOps.fit(pil_img, (IMAGE_SIZE, IMAGE_SIZE), Image.Resampling.BILINEAR)
+        else:
+            img_resized = pil_img.resize((IMAGE_SIZE, IMAGE_SIZE), Image.Resampling.BILINEAR)
 
         # Convert to numpy float32 normalized to [0, 1]
         arr = np.array(img_resized, dtype=np.float32) / 255.0

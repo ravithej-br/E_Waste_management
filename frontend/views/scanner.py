@@ -112,7 +112,27 @@ def render_scanner_page():
             st.session_state["current_scan_result"] = None
 
         if preview_pil is not None:
-            st.image(preview_pil, caption="Selected Image Preview", use_container_width=True)
+            # Framing Zoom Control
+            zoom_val = st.select_slider(
+                "🔍 Framing Focus & Zoom:",
+                options=[1.0, 1.2, 1.3, 1.5],
+                value=1.0,
+                format_func=lambda z: f"{z}x (Close-up Focus)" if z > 1.0 else "1.0x (Full Frame)",
+                help="Zoom in to crop out wide table surfaces, glare, and background reflections."
+            )
+
+            # Apply Zoom if selected
+            processed_bytes = loaded_bytes
+            if zoom_val > 1.0:
+                w, h = preview_pil.size
+                cw, ch = int(w / zoom_val), int(h / zoom_val)
+                left, top = (w - cw) // 2, (h - ch) // 2
+                preview_pil = preview_pil.crop((left, top, left + cw, top + ch))
+                buf = io.BytesIO()
+                preview_pil.save(buf, format="JPEG")
+                processed_bytes = buf.getvalue()
+
+            st.image(preview_pil, caption=f"Active Viewfinder ({zoom_val}x framing)", use_container_width=True)
 
             # Prominent Action Button
             analyze_clicked = st.button(
@@ -122,12 +142,14 @@ def render_scanner_page():
                 key="btn_analyze"
             )
 
+            st.caption("💡 **Tip:** If the item is small or has table glare/reflections, use **1.2x or 1.3x Zoom** to focus on the object.")
+
             if analyze_clicked:
                 with st.spinner("Classifying image with INT8 ONNX Engine..."):
                     try:
                         engine = get_inference_engine()
                         res = engine.predict(
-                            image_bytes=loaded_bytes,
+                            image_bytes=processed_bytes,
                             threshold=threshold,
                         )
                         st.session_state["current_scan_result"] = res
