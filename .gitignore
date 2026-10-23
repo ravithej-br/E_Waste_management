@@ -63,3 +63,6 @@ htmlcov/
 
 # Streamlit cache
 .streamlit/
+
+# SQLite databases
+*.db
