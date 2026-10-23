@@ -13,7 +13,7 @@ def render_benchmarks_page():
     """Renders empirical benchmarks, latency tests, and calibration curves."""
     st.markdown(
         """
-        <div class="hero-banner">
+        <div class="app-header">
             <h1>📊 System Architecture & Empirical Benchmarks</h1>
             <p>Empirical evaluation across PyTorch FP32, ONNX Runtime, Selective INT8 Quantization, and Calibration.</p>
         </div>
@@ -26,9 +26,9 @@ def render_benchmarks_page():
     with col_s1:
         st.markdown(
             """
-            <div class="stat-box">
-                <div class="stat-number">90.07%</div>
-                <div class="stat-label">Production Test Accuracy</div>
+            <div class="stat-pill">
+                <div class="stat-pill-val">90.07%</div>
+                <div class="stat-pill-lbl">Production Test Accuracy</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -36,9 +36,9 @@ def render_benchmarks_page():
     with col_s2:
         st.markdown(
             """
-            <div class="stat-box">
-                <div class="stat-number">100.0%</div>
-                <div class="stat-label">Hazard Recall (Batteries/CFL)</div>
+            <div class="stat-pill">
+                <div class="stat-pill-val">100.0%</div>
+                <div class="stat-pill-lbl">Hazard Recall (Batteries/CFL)</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -46,9 +46,9 @@ def render_benchmarks_page():
     with col_s3:
         st.markdown(
             """
-            <div class="stat-box">
-                <div class="stat-number">5.03 ms</div>
-                <div class="stat-label">CPU Inference Latency</div>
+            <div class="stat-pill">
+                <div class="stat-pill-val">5.03 ms</div>
+                <div class="stat-pill-lbl">CPU Inference Latency</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -56,9 +56,9 @@ def render_benchmarks_page():
     with col_s4:
         st.markdown(
             """
-            <div class="stat-box">
-                <div class="stat-number">2.89%</div>
-                <div class="stat-label">Calibrated ECE Error</div>
+            <div class="stat-pill">
+                <div class="stat-pill-val">2.89%</div>
+                <div class="stat-pill-lbl">Calibrated ECE Error</div>
             </div>
             """,
             unsafe_allow_html=True,

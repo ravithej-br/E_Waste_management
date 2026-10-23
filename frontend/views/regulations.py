@@ -13,7 +13,7 @@ def render_regulations_page():
     """Renders India E-Waste Laws, Statutory Obligations, and Hazard Matrix."""
     st.markdown(
         """
-        <div class="hero-banner">
+        <div class="app-header">
             <h1>⚖️ Statutory Framework & Legal Guidelines</h1>
             <p>Government of India E-Waste (Management) Rules 2022 and Battery Waste Management Rules 2022.</p>
         </div>
@@ -26,10 +26,10 @@ def render_regulations_page():
     with col_c1:
         st.markdown(
             """
-            <div class="modern-card">
-                <div style="font-size: 1.5rem; margin-bottom: 8px;">📜</div>
-                <h4 style="margin: 0 0 6px 0; color: #0f172a;">E-Waste Rules, 2022</h4>
-                <p style="font-size: 0.88rem; color: #475569; margin: 0;">
+            <div class="dark-card">
+                <div style="font-size: 1.5rem; margin-bottom: 6px;">📜</div>
+                <h4 style="margin: 0 0 6px 0; color: #ffffff;">E-Waste Rules, 2022</h4>
+                <p style="font-size: 0.85rem; color: #cbd5e1; margin: 0;">
                     Notified by MoEFCC via GSR 816(E). Covers all electrical & electronic equipment across 106 items.
                 </p>
             </div>
@@ -40,10 +40,10 @@ def render_regulations_page():
     with col_c2:
         st.markdown(
             """
-            <div class="modern-card">
-                <div style="font-size: 1.5rem; margin-bottom: 8px;">🔋</div>
-                <h4 style="margin: 0 0 6px 0; color: #0f172a;">Battery Waste Rules</h4>
-                <p style="font-size: 0.88rem; color: #475569; margin: 0;">
+            <div class="dark-card">
+                <div style="font-size: 1.5rem; margin-bottom: 6px;">🔋</div>
+                <h4 style="margin: 0 0 6px 0; color: #ffffff;">Battery Waste Rules</h4>
+                <p style="font-size: 0.85rem; color: #cbd5e1; margin: 0;">
                     Notified under GSR 664(E). Mandates 100% recovery of critical elements (Lithium, Cobalt, Nickel, Lead).
                 </p>
             </div>
@@ -54,11 +54,11 @@ def render_regulations_page():
     with col_c3:
         st.markdown(
             """
-            <div class="modern-card">
-                <div style="font-size: 1.5rem; margin-bottom: 8px;">🚨</div>
-                <h4 style="margin: 0 0 6px 0; color: #0f172a;">Section 15 Penalties</h4>
-                <p style="font-size: 0.88rem; color: #475569; margin: 0;">
-                    Environment (Protection) Act, 1986. Imprisonment up to 5 years, ₹1,00,000 fine for illegal disposal/burning.
+            <div class="dark-card">
+                <div style="font-size: 1.5rem; margin-bottom: 6px;">🚨</div>
+                <h4 style="margin: 0 0 6px 0; color: #ffffff;">Section 15 Penalties</h4>
+                <p style="font-size: 0.85rem; color: #cbd5e1; margin: 0;">
+                    Environment (Protection) Act, 1986. Imprisonment up to 5 years, ₹1,00,000 fine for illegal dumping.
                 </p>
             </div>
             """,

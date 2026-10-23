@@ -8,7 +8,7 @@ and direct facility contact information verified under KSPCB.
 
 import streamlit as st
 import pandas as pd
-from backend.geo_service import get_nearest_centers, load_recyclers_db
+from backend.geo_service import get_nearest_centers
 from src.utils.class_loader import get_class_names
 
 BLR_PRESETS = {
@@ -27,9 +27,9 @@ def render_recyclers_page():
     """Renders the Bengaluru E-Waste Recycling Directory and Proximity Locator."""
     st.markdown(
         """
-        <div class="hero-banner">
-            <h1>📍 Bengaluru Recycler Directory & Locator</h1>
-            <p>Locate certified KSPCB & CPCB authorized electronic waste dismantlers and collection centers across Karnataka.</p>
+        <div class="app-header">
+            <h1>📍 Bengaluru Recycler Locator</h1>
+            <p>Locate certified KSPCB & CPCB authorized electronic waste dismantlers across Karnataka.</p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -53,14 +53,16 @@ def render_recyclers_page():
 
     with col_mat:
         classes = ["All Categories"] + get_class_names()
+        prefill_cat = st.session_state.get("filter_category", "All Categories")
+        def_idx = classes.index(prefill_cat) if prefill_cat in classes else 0
         selected_mat = st.selectbox(
-            "Filter Accepted Material:",
+            "Filter Material Accepted:",
             classes,
-            index=0,
+            index=def_idx,
         )
 
     with col_limit:
-        limit = st.selectbox("Show Closest:", [3, 5, 8], index=1)
+        limit = st.selectbox("Show Nearest:", [3, 5, 8], index=1)
 
     mat_filter = None if selected_mat == "All Categories" else selected_mat
     results = get_nearest_centers(
@@ -76,49 +78,48 @@ def render_recyclers_page():
     col_map, col_cards = st.columns([1.1, 1], gap="large")
 
     with col_map:
-        st.markdown(f"### Interactive Map ({len(results)} Facilities Found)")
+        st.markdown(f"### Interactive Map ({len(results)} Facilities)")
         map_points = [
-            {"lat": c_lat, "lon": c_lon, "name": f"📍 You ({selected_location})", "color": "#dc2626"}
+            {"lat": c_lat, "lon": c_lon, "name": f"📍 You ({selected_location})"}
         ]
         for idx, r in enumerate(results, 1):
             map_points.append({
                 "lat": r["coordinates"]["lat"],
                 "lon": r["coordinates"]["lon"],
                 "name": f"#{idx} {r['name']} ({r['distance_km']} km)",
-                "color": "#059669",
             })
 
         df_map = pd.DataFrame(map_points)
         st.map(df_map, latitude="lat", longitude="lon", zoom=11)
-        st.caption("🔴 Red Marker: Your selected origin | 🟢 Green Markers: Authorized facilities")
+        st.caption("Center point: Your selected location | Pins: KSPCB licensed recyclers")
 
     with col_cards:
-        st.markdown(f"### Ranked by Distance from `{selected_location.split('(')[0].strip()}`")
+        st.markdown(f"### Nearest Facilities")
 
         if not results:
-            st.warning("No facilities found matching the specified material filter.")
+            st.warning("No facilities found accepting this specific category.")
         else:
             for idx, r in enumerate(results, 1):
-                tags = " ".join([f"<span style='background: #e2e8f0; color: #334155; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 4px;'>{cat}</span>" for cat in r["categories_accepted"]])
+                tags = " ".join([f"<span style='background: rgba(255,255,255,0.06); color: #cbd5e1; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 4px;'>{cat}</span>" for cat in r["categories_accepted"]])
                 st.markdown(
                     f"""
-                    <div class="recycler-card">
+                    <div class="recycler-card-dark">
                         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
-                            <h4 style="margin: 0; color: #0f172a; font-size: 1.05rem; font-weight: 700;">#{idx} {r['name']}</h4>
-                            <span style="background: #ecfdf5; color: #047857; font-weight: 700; font-size: 0.85rem; padding: 3px 10px; border-radius: 9999px; border: 1px solid #a7f3d0;">
-                                {r['distance_km']} km away
+                            <h4 style="margin: 0; color: #ffffff; font-size: 1.05rem; font-weight: 700;">#{idx} {r['name']}</h4>
+                            <span style="background: rgba(16, 185, 129, 0.15); color: #34d399; font-weight: 700; font-size: 0.85rem; padding: 3px 10px; border-radius: 9999px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                                {r['distance_km']} km
                             </span>
                         </div>
-                        <p style="margin: 0 0 6px 0; font-size: 0.85rem; color: #475569;"><b>📍 Address:</b> {r['address']}</p>
-                        <p style="margin: 0 0 6px 0; font-size: 0.85rem; color: #475569;">
-                            <b>📞 Phone:</b> <a href="tel:{r['phone']}" style="color: #059669; text-decoration: none; font-weight: 600;">{r['phone']}</a> |
-                            <b>✉️ Email:</b> <a href="mailto:{r['email']}" style="color: #059669; text-decoration: none;">{r['email']}</a>
+                        <p style="margin: 0 0 6px 0; font-size: 0.85rem; color: #cbd5e1;"><b>📍 Address:</b> {r['address']}</p>
+                        <p style="margin: 0 0 6px 0; font-size: 0.85rem; color: #cbd5e1;">
+                            <b>📞 Phone:</b> <a href="tel:{r['phone']}" style="color: #10b981; text-decoration: none; font-weight: 600;">{r['phone']}</a> |
+                            <b>✉️ Email:</b> <a href="mailto:{r['email']}" style="color: #10b981; text-decoration: none;">{r['email']}</a>
                         </p>
-                        <p style="margin: 0 0 8px 0; font-size: 0.82rem; color: #64748b;">
-                            <b>KSPCB Authorization:</b> <code>{r.get('kspcb_auth_no', 'Verified')}</code>
+                        <p style="margin: 0 0 8px 0; font-size: 0.8rem; color: #94a3b8;">
+                            <b>Authorization:</b> <code>{r.get('kspcb_auth_no', 'KSPCB/CPCB Registered')}</code>
                         </p>
                         <div style="margin-top: 6px;">
-                            <span style="font-size: 0.75rem; color: #64748b; font-weight: 600; margin-right: 6px;">Accepted Materials:</span>
+                            <span style="font-size: 0.75rem; color: #94a3b8; font-weight: 600; margin-right: 6px;">Accepted:</span>
                             {tags}
                         </div>
                     </div>

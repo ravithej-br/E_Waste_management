@@ -66,20 +66,20 @@ else:
     with st.sidebar:
         st.markdown(
             f"""
-            <div style="padding: 10px 0 20px 0; border-bottom: 1px solid #e2e8f0; margin-bottom: 15px;">
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+            <div style="padding: 10px 0 16px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08); margin-bottom: 15px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
                     <span style="font-size: 1.8rem;">♻️</span>
                     <div>
-                        <div style="font-weight: 800; font-size: 1.25rem; color: #0f172a; letter-spacing: -0.02em;">EcoScan AI</div>
-                        <div style="font-size: 0.78rem; color: #059669; font-weight: 600;">INT8 Production Engine</div>
+                        <div style="font-weight: 800; font-size: 1.2rem; color: #ffffff; letter-spacing: -0.02em;">EcoScan AI</div>
+                        <div style="font-size: 0.75rem; color: #34d399; font-weight: 600;">INT8 Neural Engine</div>
                     </div>
                 </div>
-                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 12px; display: flex; align-items: center; justify-content: space-between;">
+                <div style="background: #151e2e; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 10px 12px; display: flex; align-items: center; justify-content: space-between;">
                     <div>
-                        <div style="font-size: 0.85rem; font-weight: 700; color: #1e293b;">{full_name}</div>
-                        <div style="font-size: 0.75rem; color: #64748b;">@{username}</div>
+                        <div style="font-size: 0.85rem; font-weight: 700; color: #f1f5f9;">{full_name}</div>
+                        <div style="font-size: 0.75rem; color: #94a3b8;">@{username}</div>
                     </div>
-                    <span style="height: 10px; width: 10px; background-color: #10b981; border-radius: 50%; display: inline-block;"></span>
+                    <span style="height: 9px; width: 9px; background-color: #10b981; border-radius: 50%; display: inline-block;"></span>
                 </div>
             </div>
             """,
