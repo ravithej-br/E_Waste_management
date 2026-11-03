@@ -1,90 +1,93 @@
 """
 frontend/views/profile.py
 ─────────────────────────
-User Profile, Account Information, and Scan Audit Log History view.
+Dedicated Account & History page for EcoScan AI.
+Contains:
+  - Top profile card (Name, Username, Total Scans, Most Common Category)
+  - Summary metrics row (st.metric)
+  - Comprehensive audit history list with filters, pagination, dialog, CSV export, and deletion.
+  - Zero raw image persistence (Privacy Guarantee).
 """
 
 import streamlit as st
-import pandas as pd
-from frontend.auth import get_user_history
+from frontend.utils.history import get_user_stats
+from frontend.components.history_table import render_history_component
 
 
 def render_profile_page():
-    """Renders user account details and audit log of previous e-waste scans."""
+    """Renders the comprehensive Account Profile and Scan History Audit page."""
+    # Header Card
     st.markdown(
         """
         <div class="app-header">
-            <h1>👤 Account & Scan History</h1>
-            <p>View your credentials and inspect previous electronic waste audit records.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <div>
+                    <h1>👤 Account & Audit History</h1>
+                    <p>Review your researcher credentials, inspection volume, and historical e-waste audit logs.</p>
+                </div>
+                <span class="privacy-pill">🔒 Zero Raw Image Persistence</span>
+            </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    user = st.session_state.get("user", {})
+    user = st.session_state.get("user") or {}
     username = user.get("username", "demo")
     full_name = user.get("full_name", "Researcher")
     email = user.get("email", "user@example.com")
-    created_at = user.get("created_at", "2026-10-23")
+    created_at = str(user.get("created_at", "2026-10-23"))[:10]
 
-    col_info, col_actions = st.columns([2, 1], gap="large")
+    # Calculate summary stats for the top profile card
+    stats = get_user_stats(username)
+    total_scans = stats["total_scans"]
+    top_category = stats["top_category"]
 
-    with col_info:
-        st.markdown(
-            f"""
-            <div class="dark-card">
-                <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
-                    <div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: white; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700;">
+    # 1. Top Profile Card
+    st.markdown(
+        f"""
+        <div class="dark-card" style="margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: #ffffff;
+                                width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center;
+                                justify-content: center; font-size: 1.5rem; font-weight: 800; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);">
                         {full_name[:1].upper()}
                     </div>
                     <div>
-                        <h3 style="margin: 0; color: #ffffff; font-size: 1.25rem;">{full_name}</h3>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <h2 style="margin: 0; color: #ffffff; font-size: 1.35rem; font-weight: 800;">{full_name}</h2>
+                            <span style="background: rgba(16, 185, 129, 0.16); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 9999px;">
+                                VERIFIED
+                            </span>
+                        </div>
                         <span style="color: #94a3b8; font-size: 0.88rem;">@{username} • {email}</span>
                     </div>
                 </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.85rem; color: #cbd5e1; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px;">
-                    <div><b>Status:</b> <span style="color: #10b981; font-weight: 600;">Active / Verified</span></div>
-                    <div><b>Registered:</b> {created_at[:10]}</div>
-                    <div><b>Storage:</b> In-Memory Protected</div>
-                    <div><b>City:</b> Bengaluru (Karnataka)</div>
+                <div style="display: flex; gap: 24px; text-align: right;">
+                    <div>
+                        <div style="font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; font-weight: 600; letter-spacing: 0.04em;">Total Scans</div>
+                        <div style="font-size: 1.4rem; font-weight: 800; color: #10b981;">{total_scans}</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; font-weight: 600; letter-spacing: 0.04em;">Primary Material</div>
+                        <div style="font-size: 1.4rem; font-weight: 800; color: #f1f5f9;">{top_category}</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; font-weight: 600; letter-spacing: 0.04em;">Member Since</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: #cbd5e1; margin-top: 4px;">{created_at}</div>
+                    </div>
                 </div>
             </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-    with col_actions:
-        st.markdown(
-            """
-            <div class="dark-card">
-                <h4 style="margin: 0 0 6px 0; color: #ffffff;">Session Control</h4>
-                <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 14px;">
-                    Sign out to end current session. In-memory temporary cache will be cleared.
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        if st.button("🚪 Sign Out of Platform", type="secondary", use_container_width=True):
-            st.session_state["authenticated"] = False
-            st.session_state["user"] = None
-            st.session_state["current_scan_result"] = None
-            st.session_state["active_image_bytes"] = None
-            st.rerun()
+    # Helper callback to jump back to Scanner
+    def _go_to_scanner():
+        if "page_scanner" in st.session_state and hasattr(st, "switch_page"):
+            st.switch_page(st.session_state["page_scanner"])
 
-    st.markdown("### 📋 Your Recent E-Waste Scan History")
-
-    history = get_user_history(username=username, limit=15)
-
-    if not history:
-        st.info("No scans recorded yet. Go to 'Scanner & Classifier' to analyze your first item!")
-    else:
-        df_hist = pd.DataFrame(history)
-        df_hist["Confidence"] = (df_hist["confidence"] * 100).round(1).astype(str) + "%"
-        df_hist["Item Category"] = df_hist["prediction"].apply(lambda s: s.replace("_", " ").title())
-        df_hist["Date & Time"] = df_hist["scanned_at"].str.slice(0, 19)
-
-        display_df = df_hist[["Date & Time", "Item Category", "Confidence", "hazard_level"]]
-        display_df.columns = ["Scanned At", "Predicted Material", "Calibrated Confidence", "Hazard Rating"]
-
-        st.dataframe(display_df, use_container_width=True, hide_index=True)
+    # 2. Render Full History Table & Management Controls
+    render_history_component(username=username, on_navigate_scanner=_go_to_scanner)

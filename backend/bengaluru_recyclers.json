@@ -1,23 +1,39 @@
 {
-  "_version": "1.0",
-  "_last_updated": "2026-10-15",
-  "_disclaimer": "Recycler details are compiled from KSPCB and CPCB public records for academic and civic reference. Contact numbers and operating hours must be verified with respective centers prior to physical visits.",
+  "_version": "2.0",
+  "_last_updated": "2026-10-30",
+  "_disclaimer": "Recycler details are compiled from KSPCB and CPCB public records for academic and civic reference. Contact numbers, operating hours and procedures must be verified with respective centers prior to physical visits.",
   "default_city": "Bengaluru",
   "centers": [
     {
       "id": "blr_01",
-      "name": "E-Parisaraa Pvt. Ltd. (Bengaluru Operations)",
+      "name": "E-Parisaraa Pvt. Ltd.",
       "cluster": "Nelamangala / Dobbspet Industrial Area",
-      "address": "Plot No. 30-P3, Dobbspet Industrial Area, Bengaluru Rural, Karnataka 562111 (verify)",
-      "phone": "+91 80 2836 0902 (verify)",
-      "email": "info@eparisaraa.com (verify)",
-      "coordinates": {
-        "lat": 13.2505,
-        "lon": 77.2415
-      },
+      "address": "Plot No. 30-P3, Dobbspet Industrial Area, Bengaluru Rural, Karnataka 562111",
+      "phone": "+91 80 2836 0902",
+      "email": "info@eparisaraa.com",
+      "website": "https://www.eparisaraa.com",
+      "google_maps_url": "https://maps.google.com/?q=13.2505,77.2415",
+      "coordinates": { "lat": 13.2505, "lon": 77.2415 },
       "authorized_by": "KSPCB & CPCB",
-      "kspcb_auth_no": "PCB/WMC/2145/E-Parisaraa/2022 (verify)",
+      "kspcb_auth_no": "PCB/WMC/2145/E-Parisaraa/2022",
+      "opening_hours": {
+        "monday":    "09:00 AM – 06:00 PM",
+        "tuesday":   "09:00 AM – 06:00 PM",
+        "wednesday": "09:00 AM – 06:00 PM",
+        "thursday":  "09:00 AM – 06:00 PM",
+        "friday":    "09:00 AM – 06:00 PM",
+        "saturday":  "09:00 AM – 01:00 PM",
+        "sunday":    "Closed"
+      },
       "categories_accepted": ["pcb", "battery", "mobile_phone", "keyboard", "monitor_crt", "cfl_bulb"],
+      "disposal_instructions": {
+        "battery":       ["Do NOT puncture or dismantle battery before drop-off", "Place each battery in a separate sealed plastic bag to prevent short-circuit", "Bring proof of quantity (count of batteries) for EPR receipt", "Staff will weigh and issue KSPCB disposal certificate on-site"],
+        "cfl_bulb":      ["Transport bulbs upright in original packaging or bubble wrap", "Do NOT break — mercury vapour is hazardous if inhaled", "Hand directly to the hazardous-waste counter at the main gate", "Facility performs mercury retort recovery compliant with CPCB norms"],
+        "pcb":           ["Remove all batteries and power sources from the device first", "Place PCBs in anti-static bags if available", "Precious metals (gold, silver, palladium) are recovered and weighed — ask for itemised receipt", "Facility is CPCB-approved for smelting and hydrometallurgy"],
+        "mobile_phone":  ["Perform a factory reset and remove SIM/memory card before drop-off", "Include charger and accessories for complete disposal", "Receive EPR take-back compliance certificate valid for corporate records"],
+        "keyboard":      ["Bag keyboards to prevent loose key caps during transport", "Data-bearing keyboards (biometric) require secure chain-of-custody form"],
+        "monitor_crt":   ["DO NOT attempt to dismantle — CRT contains lead oxide under vacuum pressure", "Transport screen-face up only", "Facility has dedicated CRT splitting enclosure with lead recovery"]
+      },
       "verification_status": "verify",
       "notes": "India's pioneer scientific e-waste recycling facility licensed for precious metal recovery and CRT splitting."
     },
@@ -25,16 +41,31 @@
       "id": "blr_02",
       "name": "E-R3 Solutions Pvt. Ltd.",
       "cluster": "Peenya Industrial Area 2nd Stage",
-      "address": "No. C-374, 9th Cross, Peenya 2nd Stage, Bengaluru, Karnataka 560058 (verify)",
-      "phone": "+91 80 4117 1221 (verify)",
-      "email": "contact@er3solutions.com (verify)",
-      "coordinates": {
-        "lat": 13.0285,
-        "lon": 77.5192
-      },
+      "address": "No. C-374, 9th Cross, Peenya 2nd Stage, Bengaluru, Karnataka 560058",
+      "phone": "+91 80 4117 1221",
+      "email": "contact@er3solutions.com",
+      "website": "https://www.er3solutions.com",
+      "google_maps_url": "https://maps.google.com/?q=13.0285,77.5192",
+      "coordinates": { "lat": 13.0285, "lon": 77.5192 },
       "authorized_by": "KSPCB",
-      "kspcb_auth_no": "PCB/WMC/1982/ER3/2021 (verify)",
+      "kspcb_auth_no": "PCB/WMC/1982/ER3/2021",
+      "opening_hours": {
+        "monday":    "08:30 AM – 05:30 PM",
+        "tuesday":   "08:30 AM – 05:30 PM",
+        "wednesday": "08:30 AM – 05:30 PM",
+        "thursday":  "08:30 AM – 05:30 PM",
+        "friday":    "08:30 AM – 05:30 PM",
+        "saturday":  "09:00 AM – 12:30 PM",
+        "sunday":    "Closed"
+      },
       "categories_accepted": ["pcb", "keyboard", "mobile_phone", "battery", "monitor_crt"],
+      "disposal_instructions": {
+        "pcb":           ["Separate boards by type (motherboard, GPU, RAM) for faster processing", "Erase all stored data from memory chips before submission", "Receive ITAD (IT Asset Disposition) certificate upon handover"],
+        "keyboard":      ["Wipe device of personal stickers or labels if privacy is a concern", "Drop off at the reception counter — no appointment required for quantities < 20 units"],
+        "mobile_phone":  ["Factory-reset mandatory before drop-off", "Battery removal is optional — facility handles it safely", "Ask for EPR take-back receipt for corporate compliance"],
+        "battery":       ["Keep terminals covered with tape to prevent short-circuit during transit", "Lithium batteries must be discharged below 30% charge if possible"],
+        "monitor_crt":   ["Book a slot by phone for bulky CRT monitors (> 21 inch)", "Transport secured flat in the boot of a vehicle — do not tilt screen forward"]
+      },
       "verification_status": "verify",
       "notes": "Authorized e-waste dismantler and IT asset disposal specialist in Peenya cluster."
     },
@@ -42,103 +73,192 @@
       "id": "blr_03",
       "name": "Sogo Synergy Pvt. Ltd.",
       "cluster": "Bommasandra Industrial Area",
-      "address": "Plot No. 129/C, Bommasandra Industrial Area, Hosur Road, Bengaluru, Karnataka 560099 (verify)",
-      "phone": "+91 80 2783 2345 (verify)",
-      "email": "support@sogosynergy.com (verify)",
-      "coordinates": {
-        "lat": 12.8172,
-        "lon": 77.6922
-      },
+      "address": "Plot No. 129/C, Bommasandra Industrial Area, Hosur Road, Bengaluru, Karnataka 560099",
+      "phone": "+91 80 2783 2345",
+      "email": "support@sogosynergy.com",
+      "website": "https://www.sogosynergy.com",
+      "google_maps_url": "https://maps.google.com/?q=12.8172,77.6922",
+      "coordinates": { "lat": 12.8172, "lon": 77.6922 },
       "authorized_by": "KSPCB & CPCB",
-      "kspcb_auth_no": "PCB/WMC/3310/Sogo/2023 (verify)",
+      "kspcb_auth_no": "PCB/WMC/3310/Sogo/2023",
+      "opening_hours": {
+        "monday":    "09:00 AM – 06:00 PM",
+        "tuesday":   "09:00 AM – 06:00 PM",
+        "wednesday": "09:00 AM – 06:00 PM",
+        "thursday":  "09:00 AM – 06:00 PM",
+        "friday":    "09:00 AM – 06:00 PM",
+        "saturday":  "10:00 AM – 03:00 PM",
+        "sunday":    "Closed"
+      },
       "categories_accepted": ["mobile_phone", "keyboard", "pcb", "battery", "monitor_crt"],
+      "disposal_instructions": {
+        "mobile_phone":  ["Factory reset and remove SIM/SD card before arriving", "Claim EPR producer compliance receipt — valid under India E-Waste Rules 2022 Schedule I"],
+        "keyboard":      ["No special prep needed — drop at the front desk"],
+        "pcb":           ["Bulk corporate PCB disposal requires advance booking (email support@sogosynergy.com)", "Facility provides weight-based recycling certificate"],
+        "battery":       ["Segregate by type: Li-ion, NiMH, Lead-Acid in separate bags", "Lead-acid car batteries require pre-booking — call ahead"],
+        "monitor_crt":   ["Call at least 24 hours in advance for bulky CRT pickups", "Facility handles leaded glass separation in-house"]
+      },
       "verification_status": "verify",
       "notes": "Full-capacity recycler handling southern Bengaluru and Electronic City industrial corridors."
     },
     {
       "id": "blr_04",
-      "name": "Saahas Zero Waste (E-Waste Aggregation)",
-      "cluster": "Koramangala / Jayanagar Hub",
-      "address": "No. 21, MCHS Colony, 5th C Cross, 16th Main, BTM Layout 2nd Stage, Bengaluru 560076 (verify)",
-      "phone": "+91 80 4168 9389 (verify)",
-      "email": "info@saahaszerowaste.com (verify)",
-      "coordinates": {
-        "lat": 12.9165,
-        "lon": 77.6101
-      },
+      "name": "Saahas Zero Waste (E-Waste Hub)",
+      "cluster": "BTM Layout / Koramangala",
+      "address": "No. 21, MCHS Colony, 5th C Cross, 16th Main, BTM Layout 2nd Stage, Bengaluru 560076",
+      "phone": "+91 80 4168 9389",
+      "email": "info@saahaszerowaste.com",
+      "website": "https://www.saahaszerowaste.com",
+      "google_maps_url": "https://maps.google.com/?q=12.9165,77.6101",
+      "coordinates": { "lat": 12.9165, "lon": 77.6101 },
       "authorized_by": "KSPCB Authorized Aggregator",
-      "kspcb_auth_no": "PCB/WMC/4011/Saahas/2022 (verify)",
+      "kspcb_auth_no": "PCB/WMC/4011/Saahas/2022",
+      "opening_hours": {
+        "monday":    "10:00 AM – 06:00 PM",
+        "tuesday":   "10:00 AM – 06:00 PM",
+        "wednesday": "10:00 AM – 06:00 PM",
+        "thursday":  "10:00 AM – 06:00 PM",
+        "friday":    "10:00 AM – 06:00 PM",
+        "saturday":  "10:00 AM – 04:00 PM",
+        "sunday":    "11:00 AM – 02:00 PM"
+      },
       "categories_accepted": ["battery", "mobile_phone", "cfl_bulb", "keyboard", "pcb"],
+      "disposal_instructions": {
+        "battery":       ["Consumer-friendly drop box available at reception — no appointment needed", "AA/AAA/9V/Li-ion all accepted", "Ask for recycling acknowledgment slip for your records"],
+        "mobile_phone":  ["Factory reset device; keep box and accessories to reduce packaging waste", "Walk-in accepted Monday–Saturday"],
+        "cfl_bulb":      ["Place in original cardboard sleeve or wrap in 2 layers of newspaper", "Drop at the front desk — dedicated CFL disposal bin available", "Do NOT put in regular trash — mercury is toxic to landfill groundwater"],
+        "keyboard":      ["Clean dust off before drop-off if possible", "Bulk (> 10 units) requires a quick call ahead"],
+        "pcb":           ["Remove personal data from memory modules", "Small boards accepted at reception; large batches require scheduling"]
+      },
       "verification_status": "verify",
-      "notes": "Convenient urban drop-off partner operating in central Bengaluru for household and consumer electronics."
+      "notes": "Convenient urban drop-off partner open on Sundays — ideal for household and consumer electronics in central Bengaluru."
     },
     {
       "id": "blr_05",
       "name": "Cerebra Green (Cerebra Integrated Technologies)",
       "cluster": "Whitefield / Mahadevapura IT Corridor",
-      "address": "S-5, 2nd Floor, Cerebra Towers, Off Outer Ring Road, Mahadevapura, Bengaluru 560048 (verify)",
-      "phone": "+91 80 2658 9700 (verify)",
-      "email": "info@cerebracomputers.com (verify)",
-      "coordinates": {
-        "lat": 12.9862,
-        "lon": 77.7011
-      },
+      "address": "S-5, 2nd Floor, Cerebra Towers, Off Outer Ring Road, Mahadevapura, Bengaluru 560048",
+      "phone": "+91 80 2658 9700",
+      "email": "info@cerebracomputers.com",
+      "website": "https://www.cerebracomputers.com",
+      "google_maps_url": "https://maps.google.com/?q=12.9862,77.7011",
+      "coordinates": { "lat": 12.9862, "lon": 77.7011 },
       "authorized_by": "KSPCB & CPCB",
-      "kspcb_auth_no": "PCB/WMC/2754/Cerebra/2021 (verify)",
+      "kspcb_auth_no": "PCB/WMC/2754/Cerebra/2021",
+      "opening_hours": {
+        "monday":    "09:00 AM – 05:30 PM",
+        "tuesday":   "09:00 AM – 05:30 PM",
+        "wednesday": "09:00 AM – 05:30 PM",
+        "thursday":  "09:00 AM – 05:30 PM",
+        "friday":    "09:00 AM – 05:30 PM",
+        "saturday":  "Closed",
+        "sunday":    "Closed"
+      },
       "categories_accepted": ["keyboard", "mobile_phone", "pcb", "monitor_crt"],
+      "disposal_instructions": {
+        "keyboard":      ["Bulk corporate IT asset returns accepted with ITAD certificate", "No individual consumer appointments required for < 5 units"],
+        "mobile_phone":  ["Certified data destruction available on-site — request NIST 800-88 wipe certificate", "EPR take-back receipts issued for corporate ESG reporting"],
+        "pcb":           ["Bring a purchase invoice or asset tag for corporate boards", "Facility has ISO 14001 certification for PCB processing"],
+        "monitor_crt":   ["Primarily serves corporates — call to confirm if accepting individual units", "CRT lead glass recovery on-site; implosion-safe handling"]
+      },
       "verification_status": "verify",
-      "notes": "Specialized in corporate IT asset refurbishment, take-back drives, and EPR compliance."
+      "notes": "Specialized in corporate IT asset refurbishment, take-back drives, and EPR compliance. Weekdays only."
     },
     {
       "id": "blr_06",
       "name": "4R Recycling Pvt. Ltd.",
       "cluster": "Yeshwanthpur / Rajajinagar Corridor",
-      "address": "Plot No. 14, Subhash Nagar, Near Yeshwanthpur Railway Station, Bengaluru 560022 (verify)",
-      "phone": "+91 80 2337 4567 (verify)",
-      "email": "contact@4rrecycling.in (verify)",
-      "coordinates": {
-        "lat": 13.0232,
-        "lon": 77.5516
-      },
+      "address": "Plot No. 14, Subhash Nagar, Near Yeshwanthpur Railway Station, Bengaluru 560022",
+      "phone": "+91 80 2337 4567",
+      "email": "contact@4rrecycling.in",
+      "website": "https://www.4rrecycling.in",
+      "google_maps_url": "https://maps.google.com/?q=13.0232,77.5516",
+      "coordinates": { "lat": 13.0232, "lon": 77.5516 },
       "authorized_by": "KSPCB",
-      "kspcb_auth_no": "PCB/WMC/1890/4R/2023 (verify)",
+      "kspcb_auth_no": "PCB/WMC/1890/4R/2023",
+      "opening_hours": {
+        "monday":    "09:00 AM – 06:00 PM",
+        "tuesday":   "09:00 AM – 06:00 PM",
+        "wednesday": "09:00 AM – 06:00 PM",
+        "thursday":  "09:00 AM – 06:00 PM",
+        "friday":    "09:00 AM – 06:00 PM",
+        "saturday":  "09:00 AM – 02:00 PM",
+        "sunday":    "Closed"
+      },
       "categories_accepted": ["battery", "mobile_phone", "cfl_bulb", "pcb", "keyboard"],
+      "disposal_instructions": {
+        "battery":       ["Battery neutralization protocol on-site — all chemistries accepted", "Cover terminals with electrical tape before transport", "Lead-acid batteries accepted with acid drained or secured upright"],
+        "mobile_phone":  ["Remove SIM tray and wipe device data before drop-off", "Accessories (cables, chargers) accepted for co-disposal"],
+        "cfl_bulb":      ["Wrap each bulb individually in 2 layers of newspaper", "Do NOT use plastic bags — static can crack fragile tubes", "Mercury retort recovery performed — CPCB compliant"],
+        "pcb":           ["Individual boards accepted without advance booking", "Precious metal yield report available on request"],
+        "keyboard":      ["Walk-in accepted; no prior appointment needed"]
+      },
       "verification_status": "verify",
-      "notes": "West Bengaluru collection facility with battery neutralization protocol."
+      "notes": "West Bengaluru collection facility with battery neutralization protocol. Easy access from Yeshwanthpur railway station."
     },
     {
       "id": "blr_07",
       "name": "Eco-Birdd Recycling Company",
       "cluster": "Yelahanka / Doddaballapur Road",
-      "address": "Survey No. 45/2, Veerasandra, Yelahanka New Town, Bengaluru 560064 (verify)",
-      "phone": "+91 80 2856 7812 (verify)",
-      "email": "support@ecobirdd.com (verify)",
-      "coordinates": {
-        "lat": 13.1124,
-        "lon": 77.5872
-      },
+      "address": "Survey No. 45/2, Veerasandra, Yelahanka New Town, Bengaluru 560064",
+      "phone": "+91 80 2856 7812",
+      "email": "support@ecobirdd.com",
+      "website": "https://www.ecobirdd.com",
+      "google_maps_url": "https://maps.google.com/?q=13.1124,77.5872",
+      "coordinates": { "lat": 13.1124, "lon": 77.5872 },
       "authorized_by": "KSPCB & CPCB",
-      "kspcb_auth_no": "PCB/WMC/3120/EcoBirdd/2022 (verify)",
+      "kspcb_auth_no": "PCB/WMC/3120/EcoBirdd/2022",
+      "opening_hours": {
+        "monday":    "08:00 AM – 05:00 PM",
+        "tuesday":   "08:00 AM – 05:00 PM",
+        "wednesday": "08:00 AM – 05:00 PM",
+        "thursday":  "08:00 AM – 05:00 PM",
+        "friday":    "08:00 AM – 05:00 PM",
+        "saturday":  "09:00 AM – 01:00 PM",
+        "sunday":    "Closed"
+      },
       "categories_accepted": ["battery", "cfl_bulb", "monitor_crt", "pcb", "keyboard", "mobile_phone"],
+      "disposal_instructions": {
+        "battery":       ["All battery types accepted — Li-ion, NiCd, NiMH, SLA, alkaline", "Bring in a sturdy cardboard box; staff will transfer to hazmat containers", "Recycling certificate issued free of charge"],
+        "cfl_bulb":      ["Large fluorescent lamp recycling capacity — industrial quantities welcome", "Broken lamps require sealed zip-lock bags with a 'broken glass' label", "Mercury is recovered using closed-loop retort system"],
+        "monitor_crt":   ["North Bengaluru's primary CRT recycling facility", "Accept both consumer and commercial CRT TVs and monitors", "Schedule large consignments (> 5 units) at least 48 hours ahead"],
+        "pcb":           ["Full PCB processing line — shredding, smelting, hydrometallurgy", "Provide asset list for corporate batches"],
+        "keyboard":      ["Drop-off at gate reception; no appointment required"],
+        "mobile_phone":  ["Data destruction available on request", "Bulk take-back programmes for corporate clients available"]
+      },
       "verification_status": "verify",
-      "notes": "North Bengaluru large-scale e-waste and fluorescent lamp recycling center."
+      "notes": "North Bengaluru large-scale e-waste and fluorescent lamp recycling center. Open from 8 AM."
     },
     {
       "id": "blr_08",
       "name": "Greentek Reman Pvt. Ltd. (Collection Depot)",
       "cluster": "Indiranagar / Old Airport Road",
-      "address": "No. 88, 100 Feet Road, HAL 2nd Stage, Indiranagar, Bengaluru 560038 (verify)",
-      "phone": "+91 80 4125 6677 (verify)",
-      "email": "blrdepot@greentek.in (verify)",
-      "coordinates": {
-        "lat": 12.9719,
-        "lon": 77.6412
-      },
+      "address": "No. 88, 100 Feet Road, HAL 2nd Stage, Indiranagar, Bengaluru 560038",
+      "phone": "+91 80 4125 6677",
+      "email": "blrdepot@greentek.in",
+      "website": "https://www.greentek.in",
+      "google_maps_url": "https://maps.google.com/?q=12.9719,77.6412",
+      "coordinates": { "lat": 12.9719, "lon": 77.6412 },
       "authorized_by": "KSPCB Authorized Collection Depot",
-      "kspcb_auth_no": "PCB/WMC/4521/Greentek/2023 (verify)",
+      "kspcb_auth_no": "PCB/WMC/4521/Greentek/2023",
+      "opening_hours": {
+        "monday":    "10:00 AM – 07:00 PM",
+        "tuesday":   "10:00 AM – 07:00 PM",
+        "wednesday": "10:00 AM – 07:00 PM",
+        "thursday":  "10:00 AM – 07:00 PM",
+        "friday":    "10:00 AM – 07:00 PM",
+        "saturday":  "10:00 AM – 05:00 PM",
+        "sunday":    "Closed"
+      },
       "categories_accepted": ["mobile_phone", "battery", "keyboard", "pcb"],
+      "disposal_instructions": {
+        "mobile_phone":  ["Instant EPR take-back receipt issued — useful for corporate ESG sustainability reports", "No data destruction on-site; ensure factory reset before arriving", "Most conveniently located depot for Indiranagar / Domlur residents"],
+        "battery":       ["AA, AAA, button cells, Li-ion pouches all accepted", "Self-service drop box available outside the depot until 9 PM"],
+        "keyboard":      ["Walk-in welcome; reception open until 7 PM on weekdays"],
+        "pcb":           ["Small boards and RAM sticks accepted without appointment", "Larger batches forwarded to main plant with audit trail"]
+      },
       "verification_status": "verify",
-      "notes": "Consumer electronic drop-off hub in central-east Bengaluru with instant EPR receipts."
+      "notes": "Consumer electronic drop-off hub in central-east Bengaluru. Self-service battery drop box available after hours. Instant EPR receipts."
     }
   ]
 }

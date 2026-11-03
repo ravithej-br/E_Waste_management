@@ -163,42 +163,7 @@ def create_demo_user_if_needed():
             conn.commit()
 
 
-def record_scan(username: str, prediction: str, confidence: float, hazard_level: str):
-    """Logs an authenticated scan to the history table."""
-    try:
-        with _get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute(
-                """
-                INSERT INTO scan_history (username, prediction, confidence, hazard_level)
-                VALUES (?, ?, ?, ?)
-                """,
-                (username, prediction, round(float(confidence), 4), hazard_level),
-            )
-            conn.commit()
-    except Exception:
-        pass
-
-
-def get_user_history(username: str, limit: int = 10) -> List[Dict]:
-    """Retrieves recent scans for a given user."""
-    try:
-        with _get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute(
-                """
-                SELECT id, prediction, confidence, hazard_level, scanned_at
-                FROM scan_history
-                WHERE username = ?
-                ORDER BY scanned_at DESC
-                LIMIT ?
-                """,
-                (username, limit),
-            )
-            rows = cursor.fetchall()
-            return [dict(r) for r in rows]
-    except Exception:
-        return []
+from frontend.utils.history import record_scan, get_user_history
 
 
 # Auto-initialize database on import

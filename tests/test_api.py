@@ -145,14 +145,14 @@ def test_predict_corrupt_file():
 def test_zero_disk_leak():
     """Verify that prediction leaves zero leftover files on disk."""
     import tempfile
-    before_files = set(Path(tempfile.gettempdir()).glob("*"))
+    before_files = set(Path(tempfile.gettempdir()).glob("*leak_test*"))
 
     img_bytes = create_test_image()
     files = {"file": ("leak_test.jpg", img_bytes, "image/jpeg")}
     response = client.post("/predict", files=files)
     assert response.status_code == 200
 
-    after_files = set(Path(tempfile.gettempdir()).glob("*"))
+    after_files = set(Path(tempfile.gettempdir()).glob("*leak_test*"))
     # No e-waste uploads should be dumped into temp
     new_files = [f.name for f in (after_files - before_files) if "leak_test" in f.name]
     assert len(new_files) == 0

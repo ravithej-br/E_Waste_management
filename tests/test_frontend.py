@@ -34,7 +34,8 @@ def test_frontend_engine_prediction():
 
 def test_recyclers_database_loading():
     """Verify Bengaluru recyclers database loads properly for frontend display."""
-    centers = load_recyclers_db()
+    db = load_recyclers_db()
+    centers = db.get("centers", [])
     assert len(centers) >= 8
     for c in centers:
         assert "name" in c
@@ -43,6 +44,9 @@ def test_recyclers_database_loading():
         assert "lon" in c["coordinates"]
         assert "phone" in c
         assert "kspcb_auth_no" in c
+        # Verify enriched fields are present
+        assert "opening_hours" in c
+        assert "disposal_instructions" in c
 
 
 def test_nearest_centers_distance_sorting():

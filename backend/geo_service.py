@@ -40,17 +40,16 @@ DEFAULT_BLR_LAT = 12.9716
 DEFAULT_BLR_LON = 77.5946
 
 
-def load_recyclers_db() -> list[dict]:
-    """Loads curated Bengaluru recycling facilities."""
+def load_recyclers_db() -> dict:
+    """Loads and returns the full Bengaluru recyclers JSON (all fields including hours & disposal steps)."""
     if not RECYCLERS_DB_PATH.exists():
         logger.warning(f"Recyclers database not found at {RECYCLERS_DB_PATH}")
-        return []
+        return {"centers": []}
     with open(RECYCLERS_DB_PATH, "r", encoding="utf-8") as f:
-        data = json.load(f)
-        return data.get("centers", [])
+        return json.load(f)
 
 
-_CENTERS = load_recyclers_db()
+_CENTERS = load_recyclers_db().get("centers", [])
 
 
 def haversine_distance_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:

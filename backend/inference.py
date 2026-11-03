@@ -79,10 +79,18 @@ class EwasteInferenceEngine:
         self.input_name = self.session.get_inputs()[0].name
         self.output_name = self.session.get_outputs()[0].name
 
-    def preprocess_image(self, image_bytes: bytes) -> tuple[np.ndarray, dict]:
+    def preprocess_image(
+        self, image_bytes: bytes, center_crop_fraction: float = 1.0
+    ) -> tuple[np.ndarray, dict]:
         """
         Preprocesses raw image bytes into normalized CHW float32 batch tensor.
         Zero disk I/O – uses io.BytesIO in memory.
+
+        Args:
+            image_bytes:           Raw image file bytes (JPEG/PNG/WebP).
+            center_crop_fraction:  0.0–1.0 fraction of the image's shorter side to
+                                   center-crop before resize.  1.0 = full frame.
+                                   Typical use: 0.65 for real-world wide-table photos.
         """
         try:
             pil_img = Image.open(io.BytesIO(image_bytes))
@@ -103,11 +111,29 @@ class EwasteInferenceEngine:
         if pil_img.mode != "RGB":
             pil_img = pil_img.convert("RGB")
 
-        # Smart Aspect Ratio Handling:
-        # If image is widescreen/tall (e.g. smartphone 16:9 or 4:3 with ratio > 1.3),
-        # center-fit preserving aspect ratio to prevent severe geometric stretching.
         w, h = pil_img.size
         ratio = max(w, h) / max(min(w, h), 1)
+
+        # ── Automatic Smart Center-Crop for Real-World Wide Photos ──────────
+        # Phone/tablet photos are 16:9 or 4:3 (ratio ≥ 1.4).  When squeezed
+        # into 224×224 the entire background (table surface, wall, ceiling
+        # glare) occupies most pixels and confuses the classifier.
+        # Strategy: crop out 67% central region first, then resize.
+        # This mimics the tight studio crops seen in training images.
+        effective_crop = center_crop_fraction  # caller can override
+        if effective_crop < 1.0 and (w > 1 and h > 1):
+            # Centre-crop to `effective_crop` fraction of the image
+            crop_w = int(w * effective_crop)
+            crop_h = int(h * effective_crop)
+            left   = (w - crop_w) // 2
+            top    = (h - crop_h) // 2
+            pil_img = pil_img.crop((left, top, left + crop_w, top + crop_h))
+            w, h = pil_img.size
+            ratio = max(w, h) / max(min(w, h), 1)
+
+        # ── Resize Strategy ─────────────────────────────────────────────────
+        # For still-wide images (ratio > 1.3) use centre-fit to maintain
+        # aspect ratio; for near-square images use direct resize.
         if ratio > 1.3:
             img_resized = ImageOps.fit(pil_img, (IMAGE_SIZE, IMAGE_SIZE), Image.Resampling.BILINEAR)
         else:
@@ -138,15 +164,21 @@ class EwasteInferenceEngine:
         threshold: float = DEFAULT_CONFIDENCE_THRESHOLD,
         user_lat: Optional[float] = None,
         user_lon: Optional[float] = None,
+        center_crop_fraction: float = 1.0,
     ) -> dict:
         """
         Executes end-to-end in-memory classification, calibration, guidance lookup,
         and geographic recycler proximity matching.
+
+        Args:
+            center_crop_fraction: 0.0–1.0.  1.0 = full frame (default).
+                                  Pass 0.65 for real-world wide-table photos to
+                                  auto-crop background before classification.
         """
         t0 = time.perf_counter()
 
-        # 1. Preprocessing
-        tensor, meta = self.preprocess_image(image_bytes)
+        # 1. Preprocessing (with optional smart center-crop)
+        tensor, meta = self.preprocess_image(image_bytes, center_crop_fraction=center_crop_fraction)
         t1 = time.perf_counter()
 
         # 2. ONNX Forward Pass

@@ -11,6 +11,14 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from frontend.auth import register_user, authenticate_user, record_scan, get_user_history
+from frontend.utils.history import (
+    get_user_stats,
+    get_user_history_filtered,
+    count_user_history_filtered,
+    delete_scan,
+    clear_user_history,
+    export_user_history_csv,
+)
 
 
 def test_demo_user_authentication():
@@ -55,3 +63,36 @@ def test_scan_history_recording():
     latest = history[0]
     assert latest["prediction"] == "battery"
     assert latest["hazard_level"] == "CRITICAL"
+
+
+def test_history_filtering_and_stats():
+    """Verify advanced history querying, filtering, metrics, and CSV export."""
+    user = "tester_history"
+    record_scan(user, "battery", 0.95, "CRITICAL")
+    record_scan(user, "keyboard", 0.88, "LOW")
+    record_scan(user, "cfl_bulb", 0.92, "HIGH")
+
+    stats = get_user_stats(user)
+    assert stats["total_scans"] >= 3
+    assert stats["hazardous_items"] >= 2
+    assert stats["recyclable_items"] >= 1
+
+    # Test filtering by category
+    filtered = get_user_history_filtered(user, category="battery")
+    assert len(filtered) >= 1
+    assert all(r["prediction"] == "battery" for r in filtered)
+
+    # Test CSV export
+    csv_str = export_user_history_csv(user)
+    assert "Scan ID" in csv_str
+    assert "battery" in csv_str
+
+    # Test single deletion
+    item_to_delete = filtered[0]["id"]
+    deleted = delete_scan(item_to_delete, user)
+    assert deleted is True
+
+    # Test clear history
+    cleared = clear_user_history(user)
+    assert cleared is True
+    assert count_user_history_filtered(user) == 0
