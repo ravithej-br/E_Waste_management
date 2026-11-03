@@ -21,7 +21,7 @@ from frontend.views.login import render_login_page
 from frontend.views.scanner import render_scanner_page
 from frontend.views.recyclers import render_recyclers_page
 from frontend.views.regulations import render_regulations_page
-from frontend.views.benchmarks import render_benchmarks_page
+from frontend.views.about import render_about_page
 from frontend.views.profile import render_profile_page
 from frontend.components.footer import render_footer
 
@@ -82,23 +82,23 @@ else:
     # 2. Define Dedicated Pages
     p_scanner = st.Page(render_scanner_page, title="Scanner & Classifier", icon="📸", default=True)
     p_recyclers = st.Page(render_recyclers_page, title="Recyclers Directory", icon="📍")
+    p_about = st.Page(render_about_page, title="About Us & Services", icon="ℹ️")
     p_regulations = st.Page(render_regulations_page, title="Legal Guidelines", icon="⚖️")
-    p_benchmarks = st.Page(render_benchmarks_page, title="Model Benchmarks", icon="📊")
     p_account = st.Page(render_profile_page, title="Account & History", icon="👤")
 
     # Expose page objects in session state for reliable cross-page switching
     st.session_state["page_scanner"] = p_scanner
     st.session_state["page_recyclers"] = p_recyclers
+    st.session_state["page_about"] = p_about
     st.session_state["page_regulations"] = p_regulations
-    st.session_state["page_benchmarks"] = p_benchmarks
     st.session_state["page_account"] = p_account
 
     # 3. Multi-Page Navigation with st.navigation
     pg = st.navigation(
         {
             "Core Services": [p_scanner, p_recyclers],
-            "Intelligence & Law": [p_regulations, p_benchmarks],
-            "User": [p_account],
+            "Information & Guidance": [p_about, p_regulations],
+            "User Account": [p_account],
         }
     )
 
